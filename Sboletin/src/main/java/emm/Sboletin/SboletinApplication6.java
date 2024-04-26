@@ -1,5 +1,8 @@
 package emm.Sboletin;
 
+import emm.Sboletin.servicio.Servicio6;
+import emm.Sboletin.servicio.Servicio8;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,14 +18,19 @@ public class SboletinApplication6 {
 	}
 
 	@RestController
-	public class numerosmultiplo {
+	public class Multiplos {
+
+		private final Servicio6 servicio6;
+
+		@Autowired
+		public Multiplos(Servicio6 servicio6) {
+
+			this.servicio6 = servicio6;
+		}
 
 		@GetMapping("/multiplos")
 		public String verificarMultiplos1(@RequestParam("n1") int n1, @RequestParam("n2") int n2) {
-			if (n1 % n2 == 0)
-				return "Son múltiplos";
-			else
-				return "No son múltiplos";
+			return servicio6.Comparamultiplos(n1, n2);
 		}
 	}
 }
