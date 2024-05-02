@@ -35,6 +35,7 @@ public class OperacionesService {
         else
             return ("los numeros no son iguales");
     }
+
     public String comparaciondenumeros(int num) {
 
         if (num < 0)
@@ -42,18 +43,21 @@ public class OperacionesService {
         else
             return ("Positivo");
     }
-    public String Comparamultiplos( int n1,  int n2) {
+
+    public String Comparamultiplos(int n1, int n2) {
         if (n1 % n2 == 0)
             return "Son múltiplos";
         else
             return "No son múltiplos";
     }
-    public String Comparanum( int n1,  int n2) {
+
+    public String Comparanum(int n1, int n2) {
         if (n1 > n2)
             return " n1 es mayor  ";
         else
             return " n2 es mayor  ";
     }
+
     public String compararNumeros(int n1, int n2) {
         if (n1 == n2) {
             return "Son iguales";
@@ -63,12 +67,14 @@ public class OperacionesService {
             return "n2 es mayor que n1";
         }
     }
-    public String Ordendenumeros (int n1,int  n2) {
+
+    public String Ordendenumeros(int n1, int n2) {
         if (n1 > n2)
             return (n1 + " y " + n2);
         else
             return (n2 + " y " + n1);
     }
+
     public String tresnumeros(int a, int b, int c) {
         if (a > b && b > c)
             return (a + "  es mayor que  " + b + " y este es mayor que  " + c);
@@ -94,6 +100,7 @@ public class OperacionesService {
         }
         return "";
     }
+
     public String cifras(int num) {
         if (num < 10)
             return ("tiene 1 cifra");
@@ -119,32 +126,81 @@ public class OperacionesService {
         }
         return "";
     }
-    public int Cifrasalreves(int num){
+
+    public int cifrasalreves(int num) {
 
         int dm, um, c, d, u;
-// 9 9 . 9 9 9 a cada guarismo lo llamaremos:
-//dm um c d u: dm (decenas de millar), um:(unidades de millar)
-// c: (centenas), d: (decenas), u: (unidades
-// unidad
         u = num % 10;
         num = num / 10;
-// decenas
         d = num % 10;
         num = num / 10;
-// centenas
         c = num % 10;
         num = num / 10;
-// unidades de millar
         um = num % 10;
         num = num / 10;
-// decenas de millar
         dm = num;
-// lo imprimimos al revés:
-// otra forma de hacerlo es
-        num = 10000*u + 1000*d + 100*c + 10*um + dm;
-        return  (num);
+        num = 10000 * u + 1000 * d + 100 * c + 10 * um + dm;
+        return (num);
+    }
+
+    public String capicua(int num) {
+        int dm, um, c, d, u;
+        u = num % 10;
+        num = num / 10;
+        d = num % 10;
+        num = num / 10;
+        c = num % 10;
+        num = num / 10;
+        um = num % 10;
+        num = num / 10;
+        dm = num;
+        if (dm == u && um == d)
+            return "el número es capicúa";
+        else
+            return "el número NO es capicúa";
+    }
+
+    public String nocapicua(int num) {
+        int dm, um, c, d, u;
+        boolean capicua = false;
+        u = num % 10;
+        num = num / 10;
+        d = num % 10;
+        num = num / 10;
+        c = num % 10;
+        num = num / 10;
+        um = num % 10;
+        num = num / 10;
+        dm = num;
+        if (dm == u && um == d)
+            capicua = true;
+        if (dm == 0 && um == u && c == d)
+            capicua = true;
+        if (dm == 0 && um == 0 && c == u)
+            capicua = true;
+        if (dm == 0 && um == 0 && c == 0 && d == u)
+            capicua = true;
+        if (capicua)
+            return "el número es capicúa";
+        else
+            return "el número NO es capicúa";
+    }
+
+    public String muestracalificacion(int nota) {
+        if (nota >= 0 && nota <= 5)
+            return "INSUFICIENTE";
+        else if (nota == 5)
+            return "SUFICIENTE";
+        else if (nota == 6)
+            return "BIEN";
+        else if (nota == 7 || nota == 8)
+            return "NOTABLE";
+        else if (nota == 9 || nota == 10)
+            return "SOBRESALIENTE";
+        return "";
     }
 }
+
 
 
 
