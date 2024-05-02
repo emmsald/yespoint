@@ -26,18 +26,17 @@ public class SboletinApplication3 {
 		}
 
 
-			@GetMapping("/circunferencia")
-			public String calcularcircuferencia ( @RequestParam("radio") double radio){
-				double circunferencia = 2 * Math.PI * radio;
-				return "La longitud de una circunferencia de radio " + radio + " es: " + circunferencia;
-
-			}
+//			@GetMapping("/circunferencia")
+//			public String calcularcircuferencia ( @RequestParam("radio") double radio){
+//				return servicio3.calcularcircuferencia(radio);
+//
+//			}
 
 
 			@PostMapping("/circunferencia-2")
 			public String calcularCircunferencia ( @RequestParam("radio") double radio){
-				double circunferencia = 2 * Math.PI * radio;
-				return "La longitud de una circunferencia de radio " + radio + " es: " + circunferencia;
+				return servicio3.calcularcircuferencia(radio);
+
 			}
 
 		}
